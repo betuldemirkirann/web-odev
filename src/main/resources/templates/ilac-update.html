@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>İlaç Güncelleme</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+
+        ul {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Yeni İlaç Ekle</h2>
+
+    <form th:action="@{'/users/' + ${user.id} + '/ilac-update'}" method="post">
+        <div class="form-group">
+            <label for="newHastalik">Yeni İlaç:</label>
+            <input type="text" id="newHastalik" name="newHastalik" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Ekle</button>
+    </form>
+
+    <h3>Varolan İlaçlar</h3>
+    <ul th:each="hastalik : ${user.ilaclar}">
+        <li th:text="${hastalik}"></li>
+    </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

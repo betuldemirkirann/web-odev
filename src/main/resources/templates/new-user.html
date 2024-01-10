@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New User Form</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Yeni Kullanıcı</h2>
+
+    <form th:action="@{/new-user}" method="post" th:object="${user}" class="needs-validation" novalidate>
+        <!-- Input fields for user information -->
+        <div class="form-group">
+            <label for="name">İsim :</label>
+            <input type="text" id="name" name="name" th:field="*{name}" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="surname">Soy İsim :</label>
+            <input type="text" id="surname" name="surname" th:field="*{surname}" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Yaş :</label>
+            <input type="number" id="age" name="age" th:field="*{age}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="hastaliklar">Hastalıklar :</label>
+            <input type="text" id="hastaliklar" name="hastaliklar" th:href="*{hastaliklar}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="ilaclar">İlaçlar :</label>
+            <input type="text" id="ilaclar" name="ilaclar" th:href="*{ilaclar}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="tahliller">Tahliller : </label>
+            <input type="text" id="tahliller" name="tahliller" th:href="*{tahliller}" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and Popper.js scripts (required for Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
