@@ -1,0 +1,5 @@
+com/example/restapp/repository/UserRepository.class
+com/example/restapp/service/UserService.class
+com/example/restapp/domain/User.class
+com/example/restapp/RestAppApplication.class
+com/example/restapp/controller/UserController.class
